@@ -1,5 +1,11 @@
+Welcome
+===
+This repo is meant to help you navigate the Mutable app and managing your service stack.
+We provided a boilerplate project and a walkthrough for using the Mutable app
+
 Setup instructions
 ---
+
 1. Create a `mutable` folder where your mutable projects will be located. Only projects inside this folder will show up inside Mutable application.
 2. Git clone this repository into the `mutable` folder you created.
 3. In Mutable application settings, write the directory of your `mutable` folder, then hit the save button on the bottom.
@@ -9,7 +15,7 @@ Setup instructions
 6. In terminal, open `/etc/hosts` file by `sudo nano /etc/hosts` command and add the following row at the end: `127.0.0.1 mutable.local`
 7. Inside Mutable application, navigate into `boilerplate-node-react` stack, then `proxy` service, then to `Configuration` tab
 ![screen shot 2019-01-21 at 5 44 14 pm](https://user-images.githubusercontent.com/29226249/51478189-2db21b80-1da4-11e9-9243-5923b94d2a9c.png)
-8. Add the routing settings below and hit the Save button
+8. Add the routing settings below and hit the Save button. This lets services know where to redirect different routes. 
 ```
 {
 	"hosts": {
@@ -30,3 +36,5 @@ Setup instructions
 }
 ```
 9. Run `backend`, `frontend` and `proxy` services. Then open your browser and visit `mutable.local:8888`
+
+And thats it. You can add more services and api endpoints, by creating them and then editing the Configuration settings of the Proxy service to match the api call with its intended target and then publishing it by adding to the "publish" field.
