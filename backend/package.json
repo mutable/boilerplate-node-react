@@ -1,17 +1,30 @@
 {
-  "name": "backend",
+  "name": "service-api",
   "version": "1.0.0",
-  "description": "Backend for Node-React boilerplate",
-  "main": "index.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "mutable",
-  "license": "ISC",
+  "description": "Hapi service boilerplate",
+  "main": "app.js",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
+    "@mutable/meta": "^1.3.0",
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/joi": "^15.0.3",
+    "@hapi/boom": "^7.4.2",
+    "@hapi/vision": "^5.5.2",
+    "@hapi/inert": "^5.2.0",
+    "hapi-swagger": "^10.0.1",
     "toobusy-js": "^0.5.1"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": ">=11.4"
+  },
+  "keywords": [
+    "node",
+    "hapi",
+    "swagger",
+    "microservice"
+  ],
+  "author": "mutable"
 }

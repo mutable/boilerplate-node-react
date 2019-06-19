@@ -11,10 +11,10 @@ export default class List extends Component {
   }
 
   delete = id => fetch(API_URL + id, {
-    method: 'DELETE',
+    method: 'DELETE'
   })
-    .then(this.props.fetchTodos)
-    .catch()
+  .then(this.props.fetchTodos)
+  .catch()
 
   render() {
     return (
@@ -42,5 +42,5 @@ List.propTypes = {
   setTextfield: PropTypes.func.isRequired,
   editing: PropTypes.func.isRequired,
   storeEditId: PropTypes.func.isRequired,
-  fetchTodos: PropTypes.func.isRequired,
+  fetchTodos: PropTypes.func.isRequired
 };

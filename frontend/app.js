@@ -15,21 +15,21 @@ const init = async () => {
     path: '/js/{name}',
     handler: {
       directory: {
-        path: 'public/js',
-      },
-    },
+        path: 'public/js'
+      }
+    }
   });
 
   server.route({
     method: 'GET',
     path: '/health',
-    handler: () => `${tooBusy.lag()}`,
+    handler: () => `${tooBusy.lag()}`
   });
 
   server.route({
     method: 'GET',
     path: '/{name*}',
-    handler: (request, h) => h.file('public/index.html'),
+    handler: (request, h) => h.file('public/index.html')
   });
 
   await server.start();

@@ -1,15 +1,36 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+const Hapi = require('@hapi/hapi');
+const HapiSwagger = require('hapi-swagger');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
 
 const routes = require('./routes');
 
-const app = express();
-const port = process.env.PORT || 3000;
+const swaggerOptions = require('./utils/swaggerOptions.js');
 
+(async () => {
+  const server = await new Hapi.Server({
+    port: process.env.PORT || 3000,
+    routes: {
+      cors: {
+        origin: ['*']
+      }
+    }
+  });
 
-app.listen(port, () => {
-  console.log(`Listening to port ${port}`);
-});
+  await server.register([
+    Inert,
+    Vision,
+    {
+      plugin: HapiSwagger,
+      options: swaggerOptions
+    }
+  ]);
 
-app.use(bodyParser.json());
-app.use('/', routes);
+  try {
+    server.route(routes);
+    await server.start();
+    console.log(`Server running at: ${server.info.uri}`);
+  } catch (err) {
+    console.error(err);
+  }
+})();

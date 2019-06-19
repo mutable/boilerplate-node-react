@@ -1,15 +1,16 @@
-const Router = require('express').Router;
-const tooBusy = require('toobusy-js');
+const health = require('./health');
+const api = require('./api');
+const todos = require('./todos');
 
+const _routes = [health, api, todos];
+const routes = [];
 
-const handlers = require('../handlers');
+_routes.forEach((_route) => {
+  if (typeof _route === 'object' && _route.length) {
+    _route.forEach((_r) => {
+      routes.push(_r);
+    });
+  } else if (typeof _route === 'object') { routes.push(_route); }
+});
 
-const router = Router();
-module.exports = router;
-
-router.post('/todos', handlers.add);
-router.get('/todos', handlers.get);
-router.put('/todos/:ID', handlers.update);
-router.delete('/todos/:ID', handlers.delete);
-
-router.get('/health', (req, res) => res.end(`${tooBusy.lag()}`));
+module.exports = routes;

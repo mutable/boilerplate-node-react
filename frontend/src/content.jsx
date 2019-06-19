@@ -10,7 +10,7 @@ export default class Content extends Component {
     this.state = {
       isAddActive: true,
       editId: '',
-      value: '',
+      value: ''
     };
   }
 
@@ -26,37 +26,37 @@ export default class Content extends Component {
     method: 'POST',
     body: JSON.stringify({ newToDo: this.state.value }),
     headers: new Headers({
-      'Content-Type': 'application/json',
-    }),
-  })
-    .then(() => {
-      this.props.fetchTodos();
-      this.setState({ value: '' });
+      'Content-Type': 'application/json'
     })
-    .catch()
+  })
+  .then(() => {
+    this.props.fetchTodos();
+    this.setState({ value: '' });
+  })
+  .catch()
 
   update = () => fetch(API_URL + this.state.editId, {
     method: 'PUT',
     body: JSON.stringify({ newToDo: this.state.value }),
     headers: new Headers({
-      'Content-Type': 'application/json',
-    }),
-  })
-    .then(() => {
-      this.props.fetchTodos();
-      this.setState({ isAddActive: true, value: '' });
+      'Content-Type': 'application/json'
     })
-    .catch()
+  })
+  .then(() => {
+    this.props.fetchTodos();
+    this.setState({ isAddActive: true, value: '' });
+  })
+  .catch()
 
   editing = () => {
     this.setState({
-      isAddActive: false,
+      isAddActive: false
     });
   }
 
   storeEditId = (id) => {
     this.setState({
-      editId: id,
+      editId: id
     });
   }
 
@@ -108,5 +108,5 @@ export default class Content extends Component {
 
 Content.propTypes = {
   todos: PropTypes.array.isRequired,
-  fetchTodos: PropTypes.func.isRequired,
+  fetchTodos: PropTypes.func.isRequired
 };
