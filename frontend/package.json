@@ -24,10 +24,10 @@
     "webpack-livereload-plugin": "^2.2.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.2.5",
-    "hapi": "^18.0.0",
-    "inert": "^5.1.2",
+    "@hapi/hapi": "^18.3.1",
+    "@hapi/inert": "^5.2.0",
     "node-fetch": "^2.3.0",
+    "@babel/polyfill": "^7.2.5",
     "prop-types": "^15.6.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
