@@ -1,0 +1,7 @@
+{
+    "minContainers": 1,
+    "maxContainers": 1,
+    "memory": 128,
+    "healthCheck": "health",
+    "healthCheckType": "http"
+}
