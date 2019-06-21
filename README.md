@@ -9,9 +9,9 @@ Services
 
 This stack uses our prepared boilerplate services available in Mutable's public repos.
 
-Backend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)
-Frontend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)
-Proxy service: [Repo](https://github.com/mutable/node-proxy)
+Backend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)  
+Frontend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)  
+Proxy service: [Repo](https://github.com/mutable/node-proxy)  
 
 
 
