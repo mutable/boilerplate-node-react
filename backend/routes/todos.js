@@ -2,11 +2,12 @@
 /**
 * Todo API route
 **/
+
 const Boom = require('@hapi/boom');
 const Joi = require('@hapi/joi');
 
-const API_TODO = require('../api/todo');
-const Joi_Models = require('../utils/joiModels');
+const ApiTodo = require('../api/todo');
+const JoiModels = require('../utils/joi-models');
 
 const routes = [];
 module.exports = routes;
@@ -21,9 +22,9 @@ routes.push({
     auth: false,
     description: 'Todo get request',
     tags: ['api'],
-    handler: API_TODO.getTodos,  
+    handler: ApiTodo.getTodos,  
     response: {
-      schema: Joi.array().items(Object.assign({}, Joi_Models.LIST_TODOS)),
+      schema: Joi.array().items(Object.assign({}, JoiModels.LIST_TODOS)),
       failAction: FAIL_ACTION
     }
   }
@@ -36,12 +37,12 @@ routes.push({
     auth: false,
     description: 'Todo get request',
     tags: ['api'],
-    handler: API_TODO.addTodos,  
+    handler: ApiTodo.addTodos,  
     validate: {
-      query: Object.assign({}, Joi_Models.ADD_TODOS),
+      query: Object.assign({}, JoiModels.ADD_TODOS),
     },
     response: {
-      schema: Joi.array().items(Object.assign({}, Joi_Models.LIST_TODOS)),
+      schema: Joi.array().items(Object.assign({}, JoiModels.LIST_TODOS)),
       failAction: FAIL_ACTION
     }
   }
@@ -49,14 +50,14 @@ routes.push({
 
 routes.push({
   method: 'PUT',
-  path: '/todos/{ID}',
+  path: '/todos/{id}',
   options: {
     auth: false,
     description: 'Todo get request',
     tags: ['api'],
-    handler: API_TODO.updateTodos,
+    handler: ApiTodo.updateTodos,
     response: {
-      schema: Joi.array().items(Object.assign({}, Joi_Models.LIST_TODOS)),
+      schema: Joi.array().items(Object.assign({}, JoiModels.LIST_TODOS)),
       failAction: FAIL_ACTION
     }
   }
@@ -64,14 +65,14 @@ routes.push({
 
 routes.push({
   method: 'DELETE',
-  path: '/todos/{ID}',
+  path: '/todos/{id}',
   options: {
     auth: false,
     description: 'Todo get request',
     tags: ['api'],
-    handler: API_TODO.deleteTodos,  
+    handler: ApiTodo.deleteTodos,  
     response: {
-      schema: Joi.array().items(Object.assign({}, Joi_Models.LIST_TODOS)),
+      schema: Joi.array().items(Object.assign({}, JoiModels.LIST_TODOS)),
       failAction: FAIL_ACTION
     }
   }

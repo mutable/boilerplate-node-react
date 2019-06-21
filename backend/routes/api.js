@@ -7,8 +7,8 @@
 
 const Boom = require('@hapi/boom');
 
-const API = require('../api/index');
-const Joi_Models = require('../utils/joiModels');
+const ApiDummy = require('../api/index');
+const Joi_Models = require('../utils/joi-models');
 
 const routes = [];
 module.exports = routes;
@@ -23,7 +23,7 @@ routes.push({
     auth: false,
     description: 'Dummy get request',
     tags: ['api'],
-    handler: API.get,
+    handler: ApiDummy.get,
     validate: {
       query: Object.assign({}, Joi_Models.LIST_DEFAULT)
     },

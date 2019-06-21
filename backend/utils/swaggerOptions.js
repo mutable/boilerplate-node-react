@@ -5,9 +5,9 @@
 * Swagger options configuration
 **/
 
-const PACKAGE = require('../package.json');
+const Package = require('../package.json');
 
-swaggerOptions = {
+const swaggerOptions = {
   documentationPath: '/',
   auth: false,
   schemes: ['http', 'https'],
@@ -20,9 +20,9 @@ swaggerOptions = {
   },
   security: [{ Bearer: [] }],
   info: {
-    title: PACKAGE.name,
-    description: PACKAGE.description,
-    version: PACKAGE.version
+    title: Package.name,
+    description: Package.description,
+    version: Package.version
   }
 };
 

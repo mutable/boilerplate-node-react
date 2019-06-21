@@ -4,8 +4,8 @@
 * Todo hanlders
 **/
 
-const API = {};
-module.exports = API;
+const ApiTodo = {};
+module.exports = ApiTodo;
 
 // Dummy Todo
 let todos = [{
@@ -18,11 +18,11 @@ let id = 1;
 const getNewId = () => id++;
 
 //  Todo Handlers
-API.getTodos = (req, h) => {
+ApiTodo.getTodos = (req, h) => {
   return todos;
 }
 
-API.addTodos = (req, h) => {
+ApiTodo.addTodos = (req, h) => {
   let payload = req.payload.newToDo;
   todos.push({
     id: getNewId(),
@@ -31,9 +31,9 @@ API.addTodos = (req, h) => {
   return todos;
 }
 
-API.updateTodos = (req) => {
+ApiTodo.updateTodos = (req) => {
   todos = todos.map((item) => {
-    if (item.id == req.params.ID) {
+    if (item.id == req.params.id) {
       item.text = req.payload.newToDo;
     }
     return item;
@@ -42,9 +42,9 @@ API.updateTodos = (req) => {
   return todos;
 }
 
-API.deleteTodos = (req) => {
+ApiTodo.deleteTodos = (req) => {
   todos = todos.filter((item) => {
-    return item.id != req.params.ID;
+    return item.id != req.params.id;
   })
   return todos;
 }

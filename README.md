@@ -3,6 +3,18 @@ Welcome
 This repo is meant to help you navigate the Mutable app and managing your service stack.
 We provided a boilerplate project and a walkthrough for using the Mutable app
 
+
+Services
+===
+
+This stack uses our prepared boilerplate services available in Mutable's public repos.
+
+Backend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)
+Frontend service: [Repo](https://github.com/mutable/boilerplate-service-node-hapi)
+Proxy service: [Repo](https://github.com/mutable/node-proxy)
+
+
+
 Setup instructions
 ---
 
