@@ -3,7 +3,7 @@ Boilerplate Hapi microservice
 
 ## Overview
 
-The Service is built using `Hapi`, `Joi`.
+The Service is built using `Hapi`, `Joi`, `Swagger`.
 
 
 Install all the dependencies by navigating into the service and running the `npm install` command.
@@ -14,7 +14,15 @@ Run the service through the Mutable app or via Terminal.
 APIs
 ---
 
-### GET: /api/v1/get
+### GET: /api/get
+
+### GET: /api/todos
+
+### POST: /api/todos
+
+### PUT: /api/todos/{id}
+
+### DELETE: /api/todos/{id}
 
 
 ## Notes
