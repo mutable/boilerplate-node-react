@@ -1,7 +1,10 @@
 {
+    "healthCheck": "health",
+    "healthCheckType": "http",
+    "watch": "api/**/*.js",
+    "watchRestartService": true,
     "minContainers": 1,
     "maxContainers": 1,
-    "memory": 128,
-    "healthCheck": "health",
-    "healthCheckType": "http"
+    "memory": 128
 }
+

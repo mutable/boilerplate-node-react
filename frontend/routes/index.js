@@ -1,8 +1,7 @@
 const health = require('./health');
 const api = require('./api');
-const todos = require('./todos');
 
-const _routes = [health, api, todos];
+const _routes = [health, api];
 const Routes = [];
 
 _routes.forEach((_route) => {

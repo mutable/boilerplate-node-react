@@ -1,44 +1,32 @@
-const tooBusy = require('toobusy-js');
-const Hapi = require('hapi');
-const Inert = require('inert');
+const Hapi = require('@hapi/hapi');
+const Inert = require('@hapi/inert');
 
-const server = Hapi.server({
-  port: process.env.PORT || 3000,
-});
+const Routes = require('./routes');
 
-
-const init = async () => {
-  await server.register(Inert);
-
-  server.route({
-    method: 'GET',
-    path: '/js/{name}',
-    handler: {
-      directory: {
-        path: 'public/js',
-      },
-    },
+(async () => {
+  const server = await new Hapi.Server({
+    port: process.env.PORT || 3000,
+    routes: {
+      cors: {
+        origin: ['*']
+      }
+    }
   });
 
-  server.route({
-    method: 'GET',
-    path: '/health',
-    handler: () => `${tooBusy.lag()}`,
-  });
+  await server.register([
+    Inert
+  ]);
 
-  server.route({
-    method: 'GET',
-    path: '/{name*}',
-    handler: (request, h) => h.file('public/index.html'),
-  });
-
-  await server.start();
-  console.log(`Server running at: ${server.info.uri}`);
-};
+  try {
+    server.route(Routes);
+    await server.start();
+    console.log(`Server running at: ${server.info.uri}`);
+  } catch (err) {
+    console.error(err);
+  }
+})();
 
 process.on('unhandledRejection', (err) => {
   console.log(err);
   process.exit(1);
 });
-
-init();
