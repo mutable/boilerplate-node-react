@@ -4,15 +4,13 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
-  "author": "HasmikAtom",
+  "author": "hasmikatomyan@gmail.com",
   "license": "MIT",
   "dependencies": {
     "@mutable/meta": "^1.3.0",
-    "@mutable/proxy": "^2.0.4",
-    "toobusy-js": "^0.5.1"
+    "@mutable/proxy": "^2.0.4"
   },
   "keywords": [
     "proxy",
